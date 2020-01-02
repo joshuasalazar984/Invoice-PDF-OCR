@@ -1,0 +1,506 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="InvoiceOCR2" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="outBalanceDue" Type="InArgument(x:String)" />
+    <x:Property Name="outInvoiceNumber" Type="InArgument(x:String)" />
+    <x:Property Name="outInvoiceDate" Type="InArgument(x:String)" />
+    <x:Property Name="outCompanyName" Type="InArgument(x:String)" />
+  </x:Members>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>538,912</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>InvoiceOCR2_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="InvoiceOCR2" sap:VirtualizedContainerService.HintSize="518,852" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Sequence DisplayName="Image" sap:VirtualizedContainerService.HintSize="476,760" sap2010:WorkflowViewState.IdRef="Sequence_4">
+      <Sequence.Variables>
+        <Variable x:TypeArguments="ui:GenericValue" Name="Img" />
+      </Sequence.Variables>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:WindowScope ApplicationWindow="{x:Null}" SearchScope="{x:Null}" TimeoutMS="{x:Null}" Window="{x:Null}" DisplayName="Attach Window PDF Window" sap:VirtualizedContainerService.HintSize="434,668" sap2010:WorkflowViewState.IdRef="WindowScope_1" InformativeScreenshot="52c1abfe18ad0d6703aec1ac4864fbba" Selector="&lt;html app='chrome.exe' title='*.jpg (*)' /&gt;">
+        <ui:WindowScope.Body>
+          <ActivityAction x:TypeArguments="x:Object">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="x:Object" Name="ContextTarget" />
+            </ActivityAction.Argument>
+            <Sequence sap:VirtualizedContainerService.HintSize="272,522" sap2010:WorkflowViewState.IdRef="Sequence_8">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <TryCatch DisplayName="Try Catch (Invoice Number)" sap:VirtualizedContainerService.HintSize="230,52" sap2010:WorkflowViewState.IdRef="TryCatch_1">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <TryCatch.Try>
+                  <Sequence DisplayName="Invoice Number" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="Find relative image for invoice number" sap:VirtualizedContainerService.HintSize="376,260" sap2010:WorkflowViewState.IdRef="Sequence_2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:WaitImageAppear FoundElement="{x:Null}" DisplayName="Find Image for invoice" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitImageAppear_1">
+                        <ui:WaitImageAppear.Image>
+                          <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="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" />
+                        </ui:WaitImageAppear.Image>
+                        <ui:WaitImageAppear.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;webctrl tag='IMG' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:WaitImageAppear.Target>
+                      </ui:WaitImageAppear>
+                      <ui:SetClippingRegion Element="{x:Null}" Region="{x:Null}" Direction="TRANSLATE" DisplayName="Translate clipping region" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="SetClippingRegion_1">
+                        <ui:SetClippingRegion.Size>
+                          <ui:Region Rectangle="-28, 0, 63, 0" />
+                        </ui:SetClippingRegion.Size>
+                      </ui:SetClippingRegion>
+                    </Sequence>
+                    <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR for invoice number" sap:VirtualizedContainerService.HintSize="376,168" sap2010:WorkflowViewState.IdRef="GetOCRText_1">
+                      <ui:GetOCRText.OCREngine>
+                        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                          <ActivityFunc.Argument>
+                            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                          </ActivityFunc.Argument>
+                          <ui:GoogleOCR FilterRegion="{x:Null}" Output="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_1" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Scale="2">
+                            <ui:GoogleOCR.AllowedCharacters>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </ui:GoogleOCR.AllowedCharacters>
+                            <ui:GoogleOCR.DeniedCharacters>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </ui:GoogleOCR.DeniedCharacters>
+                          </ui:GoogleOCR>
+                        </ActivityFunc>
+                      </ui:GetOCRText.OCREngine>
+                      <ui:GetOCRText.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" InformativeScreenshot="3e233c5dac52b5f011eec1ed822c7e40" WaitForReady="COMPLETE">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                        </ui:Target>
+                      </ui:GetOCRText.Target>
+                      <ui:GetOCRText.Text>
+                        <OutArgument x:TypeArguments="x:String">[outInvoiceNumber]</OutArgument>
+                      </ui:GetOCRText.Text>
+                    </ui:GetOCRText>
+                    <ui:SetClippingRegion Element="{x:Null}" Region="{x:Null}" Direction="RECTANGLE" DisplayName="Reset clipping region" sap:VirtualizedContainerService.HintSize="376,22" sap2010:WorkflowViewState.IdRef="SetClippingRegion_2">
+                      <ui:SetClippingRegion.Size>
+                        <ui:Region Rectangle="0, 0, 0, 0" />
+                      </ui:SetClippingRegion.Size>
+                    </ui:SetClippingRegion>
+                  </Sequence>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,131.333333333333" sap2010:WorkflowViewState.IdRef="Catch`1_1">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                      <Assign DisplayName="Assign value for balance due" sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_1">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[outCompanyName]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">["Please check invoice number manually"]</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
+              <TryCatch DisplayName="Try Catch (Invoice Date)" sap:VirtualizedContainerService.HintSize="230,52" sap2010:WorkflowViewState.IdRef="TryCatch_2">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <TryCatch.Try>
+                  <Sequence DisplayName="Invoice Date" sap:VirtualizedContainerService.HintSize="418,622" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="Find relative image for invoice date" sap:VirtualizedContainerService.HintSize="376,260" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:WaitImageAppear FoundElement="{x:Null}" DisplayName="Find Image for invoice date" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitImageAppear_2">
+                        <ui:WaitImageAppear.Image>
+                          <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="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" />
+                        </ui:WaitImageAppear.Image>
+                        <ui:WaitImageAppear.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;webctrl tag='IMG' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:WaitImageAppear.Target>
+                      </ui:WaitImageAppear>
+                      <ui:SetClippingRegion Element="{x:Null}" Region="{x:Null}" Direction="TRANSLATE" DisplayName="Translate clipping region" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="SetClippingRegion_3">
+                        <ui:SetClippingRegion.Size>
+                          <ui:Region Rectangle="-36, -32, 29, 44" />
+                        </ui:SetClippingRegion.Size>
+                      </ui:SetClippingRegion>
+                    </Sequence>
+                    <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text for invoice date" sap:VirtualizedContainerService.HintSize="376,168" sap2010:WorkflowViewState.IdRef="GetOCRText_2">
+                      <ui:GetOCRText.OCREngine>
+                        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                          <ActivityFunc.Argument>
+                            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                          </ActivityFunc.Argument>
+                          <ui:GoogleOCR FilterRegion="{x:Null}" Output="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_2" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Scale="2">
+                            <ui:GoogleOCR.AllowedCharacters>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </ui:GoogleOCR.AllowedCharacters>
+                            <ui:GoogleOCR.DeniedCharacters>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </ui:GoogleOCR.DeniedCharacters>
+                          </ui:GoogleOCR>
+                        </ActivityFunc>
+                      </ui:GetOCRText.OCREngine>
+                      <ui:GetOCRText.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" InformativeScreenshot="885be3cca9ecb4696b8e326ff97586c6" WaitForReady="COMPLETE">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                        </ui:Target>
+                      </ui:GetOCRText.Target>
+                      <ui:GetOCRText.Text>
+                        <OutArgument x:TypeArguments="x:String">[outInvoiceDate]</OutArgument>
+                      </ui:GetOCRText.Text>
+                    </ui:GetOCRText>
+                    <ui:SetClippingRegion Element="{x:Null}" Region="{x:Null}" Direction="RECTANGLE" DisplayName="Reset clipping region" sap:VirtualizedContainerService.HintSize="376,22" sap2010:WorkflowViewState.IdRef="SetClippingRegion_4">
+                      <ui:SetClippingRegion.Size>
+                        <ui:Region Rectangle="0, 0, 0, 0" />
+                      </ui:SetClippingRegion.Size>
+                    </ui:SetClippingRegion>
+                  </Sequence>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="422.666666666667,21.3333333333333" sap2010:WorkflowViewState.IdRef="Catch`1_2">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                      <Assign DisplayName="Assign value for invoice date" sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_2">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[outInvoiceDate]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">Please check invoice date manually</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
+              <TryCatch DisplayName="Try Catch (Company Name)" sap:VirtualizedContainerService.HintSize="230,52" sap2010:WorkflowViewState.IdRef="TryCatch_3">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <TryCatch.Try>
+                  <Sequence DisplayName="Company Name" sap:VirtualizedContainerService.HintSize="418,622" sap2010:WorkflowViewState.IdRef="Sequence_10">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="Find relative image for company name" sap:VirtualizedContainerService.HintSize="376,260" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:WaitImageAppear FoundElement="{x:Null}" DisplayName="Find Image for company name" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitImageAppear_3">
+                        <ui:WaitImageAppear.Image>
+                          <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="iVBORw0KGgoAAAANSUhEUgAAABwAAAAZCAYAAAAiwE4nAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAFiUAABYlAUlSJPAAAAOuSURBVEhL3ZTJK7ZhFMbfMmdMSjIsCAsZFoZYsFEWNpYWNhZEmUrZUSL/gamkrLAgSztKWFgIZciYUkQyz5yv36lz93jr1bfy1XfqdO7h3Nd1pufxyS/LvyP8+vpSNbG12c/PT11j0be3Nz03+fj4UMvdT6KEr6+vAQkBAuT9/d35sDeC5+dnvSMAfwx/gUcJeYDgDMDLy4sCAoLl3kAfHx/1DMXfP1NAAwn+SmhRYf3XZOM9IyCsNyN8ICKIvyopYo9Ry86y8pbM7owI9ScPJNwpoZUHa1He39/L7u6u7O3tyc3NjZbZQM2fM3wJiD1Z/kSIKKE5YQGjT4ODg5Keni45OTkyNzfnQCG5vr6WsbExGR0dlfPzc81wY2NDRkZGZHZ2VrECiSvpw8ODix6AzMxMCQ0NVW1tbdWMyQDd39+XgoIC8fl8cnFxoe8gi4qKkurqat2jCD0H04bJZYia4/z8vERGRkp8fLykpqZKbm6uHBwc6IPb21uZmJiQtLQ0JZyenpbFxUVpaWlRwqKiIllYWJCrqys5PT2VlZUVOTo6csG6HrLBUrKOjg4JCQmR+vp6aW5ulrCwMJmZmdGyHh8fS11dnURERChBaWmptLe3S15enlYjLi5OGhoa5OzsTHp7eyUjI0O6urq0arx3JbWhoFxlZWVKsry8rL2Kjo6W2tpaFxAZZGVlKQEZnJycyMDAgAZQWFioGLSou7tbA8Ja9ZSQSxscSpSSkiJJSUlyd3en4NnZ2RIUFKTDBOHm5qYUFxdrSYmcs6GhIW0DgSFUjPOnpyftP+tvGcLORWdnpwQHB2tWlK6yslKSk5OVcHh4WEnJID8/Xwmtt0ws5ayoqNBK2FxAaMLeDQ3sOzs7Ul5erv2h+ZS2pKREJ5YSUy77PiEkMHrFez6jhIQEqaqqcniHh4eytramfSchslRCLjlgOukDWS0tLcn29rZsbW3J5OSkJCYmSkxMjKyurioQnwVZ9/T0yPr6uvY6NjZWv93x8XH9Vvv7+9Wvr69P8V1J2fA9tbW16SDQZHrAOeXhT0Om3DHB7JuampSAck9NTWnWgDPdNTU1GlRjY6OEh4frtNNrxPUQYIRyoHywCFGhlNKixBIQ/bm8vFQLIMOHEjx+hoU/5QRTCW3csdZwAFjjjBgJYiC2tncGjPCeO34Uhs3eDQ1KVDiaM9Ybqb8iljGATLCJF4s1io8j5BGX3r13bSXGhz1qwVi/jdx8uOMd5+bjevhb8r8TivwBSzKssY0CkdAAAAAASUVORK5CYII=" />
+                        </ui:WaitImageAppear.Image>
+                        <ui:WaitImageAppear.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;webctrl tag='IMG' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:WaitImageAppear.Target>
+                      </ui:WaitImageAppear>
+                      <ui:SetClippingRegion Element="{x:Null}" Region="{x:Null}" Direction="TRANSLATE" DisplayName="Translate clipping region" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="SetClippingRegion_5">
+                        <ui:SetClippingRegion.Size>
+                          <ui:Region Rectangle="-30, -13, 92, 26" />
+                        </ui:SetClippingRegion.Size>
+                      </ui:SetClippingRegion>
+                    </Sequence>
+                    <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text for company name" sap:VirtualizedContainerService.HintSize="376,168" sap2010:WorkflowViewState.IdRef="GetOCRText_3">
+                      <ui:GetOCRText.OCREngine>
+                        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                          <ActivityFunc.Argument>
+                            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                          </ActivityFunc.Argument>
+                          <ui:GoogleOCR FilterRegion="{x:Null}" Output="{x:Null}" Text="{x:Null}" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_3" Image="[Image]" Invert="False" Language="eng" Profile="Screen" Scale="2">
+                            <ui:GoogleOCR.AllowedCharacters>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </ui:GoogleOCR.AllowedCharacters>
+                            <ui:GoogleOCR.DeniedCharacters>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </ui:GoogleOCR.DeniedCharacters>
+                          </ui:GoogleOCR>
+                        </ActivityFunc>
+                      </ui:GetOCRText.OCREngine>
+                      <ui:GetOCRText.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" InformativeScreenshot="770c136468efa66e0ccd35b7b984805e" WaitForReady="COMPLETE">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                        </ui:Target>
+                      </ui:GetOCRText.Target>
+                      <ui:GetOCRText.Text>
+                        <OutArgument x:TypeArguments="x:String">[outCompanyName]</OutArgument>
+                      </ui:GetOCRText.Text>
+                    </ui:GetOCRText>
+                    <ui:SetClippingRegion Element="{x:Null}" Region="{x:Null}" Direction="RECTANGLE" DisplayName="Reset clipping region" sap:VirtualizedContainerService.HintSize="376,22" sap2010:WorkflowViewState.IdRef="SetClippingRegion_6">
+                      <ui:SetClippingRegion.Size>
+                        <ui:Region Rectangle="0, 0, 0, 0" />
+                      </ui:SetClippingRegion.Size>
+                    </ui:SetClippingRegion>
+                  </Sequence>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="422.666666666667,21.3333333333333" sap2010:WorkflowViewState.IdRef="Catch`1_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                      <Assign DisplayName="Assign value for company name" sap:VirtualizedContainerService.HintSize="262,62" sap2010:WorkflowViewState.IdRef="Assign_3">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[outCompanyName]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">Please check company name manually</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
+              <TryCatch DisplayName="Try Catch (Total Due)" sap:VirtualizedContainerService.HintSize="230,52" sap2010:WorkflowViewState.IdRef="TryCatch_4">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+                <TryCatch.Try>
+                  <Sequence DisplayName="Invoice Amount" sap:VirtualizedContainerService.HintSize="200,68" sap2010:WorkflowViewState.IdRef="Sequence_13">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="Find relative image for total due" sap:VirtualizedContainerService.HintSize="334,68" sap2010:WorkflowViewState.IdRef="Sequence_12">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:WaitImageAppear FoundElement="{x:Null}" DisplayName="Find Image for total due" sap:VirtualizedContainerService.HintSize="334,106" sap2010:WorkflowViewState.IdRef="WaitImageAppear_4">
+                        <ui:WaitImageAppear.Image>
+                          <ui:ImageTarget Image="{x:Null}" Accuracy="0.8" Profile="Basic" TargetImageBase64="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" />
+                        </ui:WaitImageAppear.Image>
+                        <ui:WaitImageAppear.Target>
+                          <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="&lt;webctrl tag='IMG' /&gt;">
+                            <ui:Target.TimeoutMS>
+                              <InArgument x:TypeArguments="x:Int32" />
+                            </ui:Target.TimeoutMS>
+                            <ui:Target.WaitForReady>
+                              <InArgument x:TypeArguments="ui:WaitForReady" />
+                            </ui:Target.WaitForReady>
+                          </ui:Target>
+                        </ui:WaitImageAppear.Target>
+                      </ui:WaitImageAppear>
+                      <ui:SetClippingRegion Element="{x:Null}" Region="{x:Null}" Direction="TRANSLATE" DisplayName="Translate clipping region" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="SetClippingRegion_7">
+                        <ui:SetClippingRegion.Size>
+                          <ui:Region Rectangle="-312, 0, 634, 0" />
+                        </ui:SetClippingRegion.Size>
+                      </ui:SetClippingRegion>
+                    </Sequence>
+                    <ui:GetOCRText WordsInfo="{x:Null}" DisplayName="Get OCR Text for total due" sap:VirtualizedContainerService.HintSize="334,168" sap2010:WorkflowViewState.IdRef="GetOCRText_4">
+                      <ui:GetOCRText.OCREngine>
+                        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd:Rectangle, x:String))">
+                          <ActivityFunc.Argument>
+                            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+                          </ActivityFunc.Argument>
+                          <ui:GoogleOCR FilterRegion="{x:Null}" Output="{x:Null}" Text="{x:Null}" AllowedCharacters="0123456789.,$€£" ComputeSkewAngle="False" DisplayName="Tesseract OCR" ExtractWords="False" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="GoogleOCR_4" Image="[Image]" Invert="True" Language="eng" Profile="Screen" Scale="2">
+                            <ui:GoogleOCR.DeniedCharacters>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </ui:GoogleOCR.DeniedCharacters>
+                          </ui:GoogleOCR>
+                        </ActivityFunc>
+                      </ui:GetOCRText.OCREngine>
+                      <ui:GetOCRText.Target>
+                        <ui:Target ClippingRegion="{x:Null}" Element="{x:Null}" Selector="{x:Null}" InformativeScreenshot="5665bd5ebf6c86e2a7dffbaebebfe2dc" WaitForReady="COMPLETE">
+                          <ui:Target.TimeoutMS>
+                            <InArgument x:TypeArguments="x:Int32" />
+                          </ui:Target.TimeoutMS>
+                        </ui:Target>
+                      </ui:GetOCRText.Target>
+                      <ui:GetOCRText.Text>
+                        <OutArgument x:TypeArguments="x:String">[outBalanceDue]</OutArgument>
+                      </ui:GetOCRText.Text>
+                    </ui:GetOCRText>
+                    <ui:SetClippingRegion Element="{x:Null}" Region="{x:Null}" Direction="RECTANGLE" DisplayName="Reset clipping region" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="SetClippingRegion_8">
+                      <ui:SetClippingRegion.Size>
+                        <ui:Region Rectangle="0, 0, 0, 0" />
+                      </ui:SetClippingRegion.Size>
+                    </ui:SetClippingRegion>
+                  </Sequence>
+                </TryCatch.Try>
+                <TryCatch.Catches>
+                  <Catch x:TypeArguments="s:Exception" sap:VirtualizedContainerService.HintSize="400,131.333333333333" sap2010:WorkflowViewState.IdRef="Catch`1_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <ActivityAction x:TypeArguments="s:Exception">
+                      <ActivityAction.Argument>
+                        <DelegateInArgument x:TypeArguments="s:Exception" Name="exception" />
+                      </ActivityAction.Argument>
+                      <Assign DisplayName="Assign value for balance due" sap:VirtualizedContainerService.HintSize="262,61.3333333333333" sap2010:WorkflowViewState.IdRef="Assign_4">
+                        <Assign.To>
+                          <OutArgument x:TypeArguments="x:String">[outBalanceDue]</OutArgument>
+                        </Assign.To>
+                        <Assign.Value>
+                          <InArgument x:TypeArguments="x:String">Please check invoice balance manually</InArgument>
+                        </Assign.Value>
+                      </Assign>
+                    </ActivityAction>
+                  </Catch>
+                </TryCatch.Catches>
+              </TryCatch>
+              <WriteLine DisplayName="Log invoice details" sap:VirtualizedContainerService.HintSize="230,62" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="[&quot;Invoice Date: &quot;+outInvoiceDate+Environment.NewLine+&quot;Invoice Number: &quot;+outInvoiceNumber+&quot;Company Name: &quot;+outCompanyName+Environment.NewLine+&quot;Total Due: &quot;+outBalanceDue]" />
+            </Sequence>
+          </ActivityAction>
+        </ui:WindowScope.Body>
+      </ui:WindowScope>
+    </Sequence>
+  </Sequence>
+</Activity>
